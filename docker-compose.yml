@@ -1,0 +1,11 @@
+version: "3.4"
+services:
+  s3cmd:
+    build: ./
+    container_name: s3cmd
+    hostname: s3cmd
+    command: -a "<access_key>" -s "<secret_key>" -b "<bucket_location>" -e "<host_base>" -h "<host_bucket>" -u "True" -z "<s3cmd_operation>"
+    image: s3cmd:latest
+    volumes:
+      - ./data:/data:rw
+  
